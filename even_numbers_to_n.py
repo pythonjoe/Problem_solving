@@ -1,0 +1,2 @@
+def evenNumbersLst(num):
+	pass
