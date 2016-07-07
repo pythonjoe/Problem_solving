@@ -3,7 +3,7 @@ Design a cash register drawer function checkCashRegister() that accepts purchase
 """
 
 def check_cash_register(price, cash, cid):
-    change = 0
+    change = cash - price
     total = 0
     cash_values = {
         "PENNY": .01,
@@ -17,4 +17,12 @@ def check_cash_register(price, cash, cid):
         total += cash_values[lst[0]] * lst[1]
     print(total)
 
-check_cash_register(10, 15, [["PENNY", 8], ["NICKEL", 4], ["DIME", 3], ["QUARTER", 4], ["ONE", 6]])
+    if total < change:
+        return "Insufficient funds"
+    elif total == change:
+        return "Closed"
+    else:
+        return "Your change is {0} dollars.".format(change)
+
+
+print(check_cash_register(10, 25, [["PENNY", 8], ["NICKEL", 4], ["DIME", 3], ["QUARTER", 4], ["ONE", 6]]))
